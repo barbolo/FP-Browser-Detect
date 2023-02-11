@@ -3,16 +3,16 @@ import ReactDOM from 'react-dom';
 import VConsole from 'vconsole';
 import './index.css';
 import App from "./App";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter  } from "react-router-dom";
 
 var vConsole = new VConsole();
 
 ReactDOM.render(
   <React.StrictMode>
       {/*<BrowserRouter basename={"FP-Browser-Detect"}>*/}
-      <BrowserRouter>
+      <HashRouter >
           <App />
-      </BrowserRouter>,
+      </HashRouter >,
   </React.StrictMode>,
   document.getElementById('root')
 );

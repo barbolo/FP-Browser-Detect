@@ -57,7 +57,6 @@ function get_ips(callback) {
     };
 
     function handleCandidate(candidate) {
-        console.log(candidate)
         try {
             //match just the IP address
             var ip_regex = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/
@@ -86,7 +85,7 @@ function get_ips(callback) {
 
     //listen for candidate events
     pc.onicecandidate = function (ice) {
-
+        console.log(ice)
         //skip non-candidate events
         if (ice.candidate) {
             handleCandidate(ice.candidate.candidate);
@@ -111,6 +110,7 @@ function get_ips(callback) {
         //read candidate info from local description
         var lines = pc.localDescription.sdp.split('\n');
         lines.forEach(function (line) {
+            console.log(line)
             if (line.indexOf('a=candidate:') === 0)
                 handleCandidate(line);
         });
